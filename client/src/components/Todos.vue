@@ -39,11 +39,15 @@
         </q-item>
       </q-card-section>
       <q-card-section style="text-align: center">
-        <q-btn color="amber" text-color="black" label="Remove Completed" style="margin-right: 10px" @click="handleDeleteCompleted"></q-btn>
+        <q-btn color="amber" text-color="black" label="Remove Completed" style="margin-right: 10px"
+               @click="handleDeleteCompleted"></q-btn>
         <q-btn-group>
-          <q-btn glossy :color="filter === 'all' ? 'primary' : 'white'" text-color="black" label="All" @click="handleSetFilter('all')"/>
-          <q-btn glossy :color="filter === 'complete' ? 'primary' : 'white'" text-color="black" label="Completed" @click="handleSetFilter('complete')"/>
-          <q-btn glossy :color="filter === 'incomplete' ? 'primary' : 'white'" text-color="black" label="Incomplete" @click="handleSetFilter('incomplete')"/>
+          <q-btn glossy :color="filter === 'all' ? 'primary' : 'white'" text-color="black" label="All"
+                 @click="handleSetFilter('all')"/>
+          <q-btn glossy :color="filter === 'complete' ? 'primary' : 'white'" text-color="black" label="Completed"
+                 @click="handleSetFilter('complete')"/>
+          <q-btn glossy :color="filter === 'incomplete' ? 'primary' : 'white'" text-color="black" label="Incomplete"
+                 @click="handleSetFilter('incomplete')"/>
           <q-tooltip>
             Filter the todos
           </q-tooltip>
@@ -52,7 +56,7 @@
     </q-card>
     <div v-if="error" class="error">
       <q-banner inline-actions class="text-white bg-red" @click="handleErrorClick">
-        ERROR: {{this.error}}
+        ERROR: {{ this.error }}
       </q-banner>
     </div>
   </div>
@@ -70,7 +74,7 @@ export default {
     TodoItem
   },
 
-  data: function() {
+  data: function () {
     return {
       todos: [],
       newTodoTitle: '',
@@ -81,7 +85,7 @@ export default {
     }
   },
 
-  setup () {
+  setup() {
     return {
       alert: ref(false),
     }
@@ -127,7 +131,7 @@ export default {
 
     handleDeleteCompleted() {
       const completed = this.todos.filter(todo => todo.completed)
-      Promise.all(completed.map( todoToRemove => {
+      Promise.all(completed.map(todoToRemove => {
         return this.$api.removeForId(todoToRemove.id).then(() => {
           this.$log.debug("Item removed:", todoToRemove);
           this.todos.splice(this.todos.indexOf(todoToRemove), 1)
@@ -144,7 +148,7 @@ export default {
       if (!value) {
         return
       }
-      this.$api.createNew(value, false).then( (response) => {
+      this.$api.createNew(value, false).then((response) => {
         this.$log.debug("New item created:", response)
         this.newTodoTitle = ""
         this.todos.push({
@@ -176,7 +180,7 @@ export default {
       this.error = message
     },
 
-    handleErrorClick () {
+    handleErrorClick() {
       this.error = null;
     },
 
@@ -189,9 +193,11 @@ export default {
 #row-container {
   margin-top: 100px;
 }
+
 .my-card {
   min-width: 600px;
 }
+
 .error {
   color: red;
   text-align: center;

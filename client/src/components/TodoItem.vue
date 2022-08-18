@@ -5,7 +5,7 @@
   <q-item-section avatar class="check-icon" v-else>
     <q-icon color="gray" name="check_box_outline_blank" @click="handleClickSetCompleted(true)"/>
   </q-item-section>
-  <q-item-section v-if="!editing">{{this.item.title}}</q-item-section>
+  <q-item-section v-if="!editing">{{ this.item.title }}</q-item-section>
   <q-item-section v-else>
     <input
         class="list-item-input"
@@ -18,10 +18,10 @@
     />
   </q-item-section>
   <q-item-section avatar class="hide-icon" @click="handleClickEdit">
-    <q-icon color="primary" name="edit" />
+    <q-icon color="primary" name="edit"/>
   </q-item-section>
   <q-item-section avatar class="hide-icon close-icon" @click="handleClickDelete">
-    <q-icon color="red" name="close" />
+    <q-icon color="red" name="close"/>
   </q-item-section>
 </template>
 <script>
@@ -44,17 +44,17 @@ export default {
     }
   },
   methods: {
-    handleClickEdit () {
+    handleClickEdit() {
       this.editing = true
       this.editingTitle = this.item.title
       nextTick(function () {
         this.$refs.input.focus()
       }.bind(this))
     },
-    handleCancelEditing () {
+    handleCancelEditing() {
       this.editing = false
     },
-    handleDoneEditing () {
+    handleDoneEditing() {
       this.editing = false
       this.$api.updateForId(this.item.id, this.editingTitle, this.item.completed).then((response) => {
         this.setTitle(this.item.id, this.editingTitle)
@@ -85,16 +85,20 @@ export default {
   min-width: 0px;
   padding-left: 5px !important;
 }
+
 .todo-item .hide-icon {
   opacity: 0.1;
 }
+
 .todo-item:hover .hide-icon {
   opacity: 0.8;
 }
+
 .check-icon {
   min-width: 0px;
   padding-right: 5px !important;
 }
+
 input.list-item-input {
   border: none;
 }

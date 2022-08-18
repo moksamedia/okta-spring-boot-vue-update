@@ -10,13 +10,12 @@ import javax.persistence.Entity;
 @Data
 @NoArgsConstructor
 public class Todo {
-
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
     @NonNull
     private String title;
 
     private Boolean completed = false;
-
 }
