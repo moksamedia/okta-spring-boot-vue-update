@@ -1,27 +1,27 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import { navigationGuard } from '@okta/okta-vue'
+import {createRouter, createWebHistory} from 'vue-router'
+import {navigationGuard} from '@okta/okta-vue'
 import Todos from "@/components/Todos";
 import Home from "@/components/Home";
-import { LoginCallback } from '@okta/okta-vue'
+import {LoginCallback} from '@okta/okta-vue'
 
 const routes = [
-    {
-        path: '/',
-        component: Home
-    },
-    {
-        path: '/todos',
-        component: Todos,
-        meta: {
-            requiresAuth: true
-        }
-    },
-    { path: '/login/callback', component: LoginCallback },
+  {
+    path: '/',
+    component: Home
+  },
+  {
+    path: '/todos',
+    component: Todos,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {path: '/login/callback', component: LoginCallback},
 ]
 
 const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
-    routes,
+  history: createWebHistory(process.env.BASE_URL),
+  routes,
 })
 
 router.beforeEach(navigationGuard)
