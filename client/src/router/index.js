@@ -16,7 +16,7 @@ const routes = [
       requiresAuth: true
     }
   },
-  {path: '/login/callback', component: LoginCallback},
+  {path: '/callback', component: LoginCallback},
 ]
 
 const router = createRouter({
