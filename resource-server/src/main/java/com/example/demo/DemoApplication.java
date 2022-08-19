@@ -56,7 +56,7 @@ public class DemoApplication {
 		return bean;
 	}
 
-    // Expose IDs of Todo items
+	// Expose IDs of Todo items
 	@Component
 	class RestRespositoryConfigurator implements RepositoryRestConfigurer {
 		public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {

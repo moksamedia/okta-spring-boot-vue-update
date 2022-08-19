@@ -11,7 +11,8 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 public class Todo {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
     @NonNull
