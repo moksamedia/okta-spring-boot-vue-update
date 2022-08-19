@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 @Data
 @NoArgsConstructor
 public class Todo {
+
     @Id
     @GeneratedValue
     private Long id;
@@ -18,4 +19,5 @@ public class Todo {
     private String title;
 
     private Boolean completed = false;
+
 }
